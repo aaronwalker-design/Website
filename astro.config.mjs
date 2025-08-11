@@ -15,7 +15,7 @@ import { remarkReadingTime } from "./src/plugins/remark-reading-time";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://aaronwalker-design.github.io",
+  site: "https://aaronwalker.space",
   base: "Website",
   output: "static",
   style: {

@@ -1,0 +1,57 @@
+# Site basic information
+site:
+  tab: Website # Text displayed in browser tab
+  title: Website # Site title
+  description: # Site description for SEO
+  language: en # Site language, e.g., "en" for English
+  favicon: /favicon.ico # Site icon for browser tab and other places
+  theme: # More themes: https://daisyui.com/docs/themes/
+    light: winter # Light mode theme
+    dark: dracula # Dark mode theme
+    code: github-dark # Code block theme: https://shiki.style/themes
+  date_format: ddd MMM DD YYYY # Date format, supports custom format
+  blog: # Blog related configuration
+    pageSize: 8 # Number of posts per page
+  menu: # Menu configuration
+    - id: home # Unique identifier for menu item
+      text: Home # Text displayed for menu item
+      href: / # Link address for menu item
+      svg: "material-symbols:home-outline-rounded"
+      target: _self
+    - id: about
+      text: About
+      href: /about
+      svg: "material-symbols:info-outline-rounded"
+      target: _self
+    - id: blog
+      text: Blogs
+      href: /blog
+      svg: "material-symbols:book-2-outline-rounded"
+      target: _self
+      subItems:
+        - id: all
+          text: All blogs
+          href: /blog
+          svg: "material-symbols:ink-pen-outline-rounded"
+          target: _self
+        # Sub-menu item configuration
+    - id: project
+      text: Project
+      href: /project
+      svg: "material-symbols:code-blocks-outline"
+      target: _self
+    - id: links
+      text: Links
+      href: /friend
+      svg: "material-symbols:link"
+      target: _self
+
+# User personal information
+user:
+  name: # Username
+  site: # User website link
+  avatar: # User avatar path
+  sidebar: # Sidebar configuration
+    social: []
+  footer:
+    social: []

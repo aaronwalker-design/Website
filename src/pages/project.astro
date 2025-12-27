@@ -1,17 +1,59 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import MainCard from "@/components/MainCard.astro";
+import Card from "@/components/temple/Card.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <BaseLayout title="Projects">
   <MainCard
     title="Projects"
-    description=""
-    textOverlay="PROJECTS"
+    description="A collection of my work and projects"
+    image="/banners/project.png"
     infoIcon="lucide:code-2"
   >
     <div class="prose max-w-none">
-      <p>Projects coming soon...</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+        <a href="/project/dear-darling" class="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="card-body">
+            <h2 class="card-title">
+              <Icon name="lucide:folder" class="w-5 h-5" />
+              Dear Darling
+            </h2>
+            <p class="text-sm opacity-75">View project details</p>
+          </div>
+        </a>
+
+        <a href="/project/mnky-hse" class="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="card-body">
+            <h2 class="card-title">
+              <Icon name="lucide:folder" class="w-5 h-5" />
+              MnkY Hse
+            </h2>
+            <p class="text-sm opacity-75">View project details</p>
+          </div>
+        </a>
+
+        <a href="/project/diffusion-hilton" class="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="card-body">
+            <h2 class="card-title">
+              <Icon name="lucide:folder" class="w-5 h-5" />
+              Diffusion / Hilton
+            </h2>
+            <p class="text-sm opacity-75">View project details</p>
+          </div>
+        </a>
+
+        <a href="/project/deloitte" class="card bg-base-100 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="card-body">
+            <h2 class="card-title">
+              <Icon name="lucide:folder" class="w-5 h-5" />
+              Deloitte
+            </h2>
+            <p class="text-sm opacity-75">View project details</p>
+          </div>
+        </a>
+      </div>
     </div>
   </MainCard>
 </BaseLayout>

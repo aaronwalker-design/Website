@@ -3,6 +3,7 @@ import ProfileBar from "./sidebar/ProfileBar.astro";
 import ToolBar from "./sidebar/ToolBar.astro";
 import TOCBar from "./sidebar/TOCBar.astro";
 import SearchBar from "./sidebar/SearchBar.astro";
+import Card from "./temple/Card.astro";
 
 interface Props {
   headings?: Array<{
@@ -16,6 +17,19 @@ interface Props {
 // Get headings from parent component or page
 const { headings = [], showTOC = true } = Astro.props as Props;
 ---
+
+<!-- Profile Image Section - Above Navigation Menu -->
+<div class="relative mb-4">
+  <Card>
+    <div class="p-4 flex justify-center">
+      <img
+        src="/profile.png"
+        alt="Profile"
+        class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-base-200 shadow-lg"
+      />
+    </div>
+  </Card>
+</div>
 
 <div class="relative mb-4">
   <ProfileBar />

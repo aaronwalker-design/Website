@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <div class="powershell-generator text-sm">
@@ -7,10 +8,25 @@
     <h2 class="text-lg font-bold">Configuration</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <!-- Hostname -->
+      <div class="form-control md:col-span-2">
+        <label class="label py-1">
+          <span class="label-text text-xs font-semibold">Hostname (Computer Name)</span>
+          <span class="label-text-alt text-xs opacity-70">Optional - leave empty to use auto-generated name</span>
+        </label>
+        <input
+          type="text"
+          id="hostname"
+          class="input input-bordered input-sm"
+          placeholder="e.g., SRV101, SERVER101, or custom name"
+        />
+      </div>
+
       <!-- PC Name -->
       <div class="form-control">
         <label class="label py-1">
           <span class="label-text text-xs font-semibold">PC Name Prefix</span>
+          <span class="label-text-alt text-xs opacity-70">Used if hostname is empty</span>
         </label>
         <select id="pc-name-prefix" class="select select-bordered select-sm mb-2">
           <option value="SRV">SRV (SRV101, SRV102, etc.)</option>
@@ -170,12 +186,7 @@
     </div>
 
     <div id="copy-success" class="alert alert-success alert-sm hidden py-1">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="stroke-current shrink-0 h-4 w-4"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-4 w-4" fill="none" viewBox="0 0 24 24">
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -186,12 +197,7 @@
     </div>
 
     <div id="generate-success" class="alert alert-info alert-sm hidden py-1">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="stroke-current shrink-0 h-4 w-4"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-4 w-4" fill="none" viewBox="0 0 24 24">
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -385,12 +391,17 @@
 
     function generatePowerShell(machineNumber) {
       const fullPcName = getFullPcName(machineNumber);
+      const hostnameInput = document.getElementById("hostname");
+      const hostname = hostnameInput ? hostnameInput.value.trim() : "";
+      const numMachines = parseInt(document.getElementById("num-machines").value) || 1;
+      // If hostname is provided and multiple machines, append machine number
+      const finalComputerName = hostname ? (numMachines > 1 ? `${hostname}-${machineNumber}` : hostname) : fullPcName;
       const networkTech = document.querySelector('input[name="network-tech"]:checked').value;
       const vlans = getVlanData();
 
       let script = "";
 
-      script += `# PowerShell Script for ${fullPcName}\n`;
+      script += `# PowerShell Script for ${finalComputerName}\n`;
       script += `# Generated: ${new Date().toLocaleString()}\n`;
       script += `# Network Technology: ${networkTech === "hyperv" ? "Hyper-V" : "Intel NetTeaming"}\n\n`;
 
@@ -399,6 +410,33 @@
       script += `if (-not $isAdmin) {\n`;
       script += `    Write-Host "This script requires administrator privileges. Please run as administrator." -ForegroundColor Red\n`;
       script += `    exit 1\n`;
+      script += `}\n\n`;
+
+      script += `# Rename Computer (Hostname)\n`;
+      script += `$desiredComputerName = "${finalComputerName}"\n`;
+      script += `$currentComputerName = $env:COMPUTERNAME\n`;
+      script += `if ($currentComputerName -ne $desiredComputerName) {\n`;
+      script += `    Write-Host "Renaming computer from '$currentComputerName' to '$desiredComputerName'..." -ForegroundColor Yellow\n`;
+      script += `    try {\n`;
+      script += `        Rename-Computer -NewName $desiredComputerName -Force -ErrorAction Stop\n`;
+      script += `        Write-Host "Computer renamed successfully to '$desiredComputerName'" -ForegroundColor Green\n`;
+      script += `        Write-Host "\`nWARNING: A restart is required for the computer name change to take effect." -ForegroundColor Yellow\n`;
+      script += `        Write-Host "Please restart the computer before continuing with network configuration." -ForegroundColor Yellow\n`;
+      script += `        $restart = Read-Host "\`nDo you want to restart now? (Y/N)"\n`;
+      script += `        if ($restart -eq "Y" -or $restart -eq "y") {\n`;
+      script += `            Write-Host "Restarting computer in 10 seconds..." -ForegroundColor Yellow\n`;
+      script += `            Start-Sleep -Seconds 10\n`;
+      script += `            Restart-Computer -Force\n`;
+      script += `        } else {\n`;
+      script += `            Write-Host "Please restart the computer manually and then run this script again." -ForegroundColor Yellow\n`;
+      script += `            exit 0\n`;
+      script += `        }\n`;
+      script += `    } catch {\n`;
+      script += `        Write-Host "Error renaming computer: $_" -ForegroundColor Red\n`;
+      script += `        exit 1\n`;
+      script += `    }\n`;
+      script += `} else {\n`;
+      script += `    Write-Host "Computer name is already set to '$desiredComputerName'" -ForegroundColor Green\n`;
       script += `}\n\n`;
 
       script += `# Get installed network adapters (including those without connection)\n`;
@@ -641,7 +679,7 @@
         }
       });
 
-      script += `Write-Host "\nConfiguration completed for ${fullPcName}!" -ForegroundColor Green\n`;
+      script += `Write-Host "\nConfiguration completed for ${finalComputerName}!" -ForegroundColor Green\n`;
       script += `Write-Host "Please verify network connectivity." -ForegroundColor Yellow\n`;
 
       return script;
@@ -664,10 +702,12 @@
 
       const previewSelect = document.getElementById("preview-machine");
       previewSelect.innerHTML = "";
+      const hostnameInput = document.getElementById("hostname");
+      const hostname = hostnameInput ? hostnameInput.value.trim() : "";
       for (let i = 1; i <= numMachines; i++) {
         const option = document.createElement("option");
         option.value = i;
-        const fullName = getFullPcName(i);
+        const fullName = hostname ? (numMachines > 1 ? `${hostname}-${i}` : hostname) : getFullPcName(i);
         option.textContent = `Machine ${i} (${fullName})`;
         previewSelect.appendChild(option);
       }
@@ -728,7 +768,14 @@
         return;
       }
 
-      const fullPcName = getFullPcName(machineNum);
+      const hostnameInput = document.getElementById("hostname");
+      const hostname = hostnameInput ? hostnameInput.value.trim() : "";
+      const numMachines = Object.keys(generatedScripts).length;
+      const fullPcName = hostname
+        ? numMachines > 1
+          ? `${hostname}-${machineNum}`
+          : hostname
+        : getFullPcName(machineNum);
       const blob = new Blob([script], { type: "application/x-powershell" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -758,10 +805,17 @@
 
       // Download each script with a small delay to avoid browser blocking
       let delay = 0;
+      const hostnameInput = document.getElementById("hostname");
+      const hostname = hostnameInput ? hostnameInput.value.trim() : "";
       Object.keys(generatedScripts).forEach((machineNum) => {
         setTimeout(() => {
           const script = generatedScripts[machineNum];
-          const fullPcName = getFullPcName(parseInt(machineNum));
+          const machineNumInt = parseInt(machineNum);
+          const fullPcName = hostname
+            ? numMachines > 1
+              ? `${hostname}-${machineNumInt}`
+              : hostname
+            : getFullPcName(machineNumInt);
           const blob = new Blob([script], { type: "application/x-powershell" });
           const url = URL.createObjectURL(blob);
           const a = document.createElement("a");
@@ -871,4 +925,3 @@
     }
   }
 </style>
-

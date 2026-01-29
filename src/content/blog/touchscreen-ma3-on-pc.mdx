@@ -1,0 +1,70 @@
+---
+title: "TouchScreen Ma3 On PC"
+description: "Guide to setting up and using TouchScreen Ma3 on Windows PC"
+pubDate: 2025-01-27
+categories:
+  - Technical
+tags:
+  - TouchScreen
+  - Ma3
+  - Windows
+  - PC
+draft: false
+---
+
+In the professional lighting market, the entry-level landscape is a bit of a paradox. Platforms like Avolites, Chamsys, and MA Lighting offer immense power through their software, yet the hardware transition often feels like hitting a glass ceiling. You get the power, but you also get the restrictions.
+
+## My original System
+My journey started in the Avolites ecosystem, owning a Quartz and several Mobile products, while simultaneously installing ChamSys systems in various venues. While these consoles are workhorses, I eventually hit a wall. 
+
+Between critical bugs and workflow choices that didn't align with my style—and a growing frustration with the limitations of OSC and WebAPI integration—I found myself looking toward the industry gold standard: MA3.
+
+#### MA Lighting
+MA Lighting has always felt just out of reach for the independent operator. The price jump is staggering; while Avolites and ChamSys offer solid console solutions in the £4k–£6k range, a comparable MA3 setup often demands an investment of £15k+.
+
+A few years ago, I hedged my bets, sold my Avolites gear, and picked up an MA3 Command Wing. For a long time, it was a desk ornament at the Disguise office—a tool for learning, but underutilized in the field. That changed when a major onsite project demanded MA3 proficiency, and the rental market began clamoring for a console-grade experience in a portable footprint.
+
+#### Form Factor vs. Reality
+While companies like Santosom and Granny’s dock offer excellent console-in-a-case solutions, they are often bulky and difficult to move alone. Recently, after breaking my knee, the prospect of lugging a "double-wide" rack became a physical impossibility. I needed something powerful, integrated, but actually portable.
+
+---
+### The Hardware: Core Components
+
+When building an onPC solution, you are building a computer, which will often cause support headaches
+This is ultimately important, when using a console, you tip the case, turn it on and it then works, with a PC jumping to the desktop to windows
+###  MinisForum AI (Non-Pro)
+
+The heart of the build is the MinisForum AI (Non-Pro). While the Pro models offer higher GPU overhead, the standard AI variant provided the perfect sweet spot for a dedicated lighting machine. 
+
+* **16GB RAM:** While 32GB is often the spec-sheet flex, 16GB is the optimized ceiling for MA3 onPC. In a stripped-back environment, this provides more than enough overhead for massive show files and 3D visualizers without wasting power or generating unnecessary heat.
+* **Form Factor:** The small footprint allows it to be tucked away inside a shallow rack or even mounted to the underside of a wing. For someone dealing with limited mobility, every centimeter of saved space and every gram of weight matters.
+
+The WING
+
+---
+
+### The Setup: Screens and Mounting
+
+With the internal "brain" finalized, the focus shifted to the user interface. For an MA3 onPC system, screen real estate is everything, but it has to be balanced against the need for a low-profile, "grab-and-go" form factor.
+#### Screen Selection: UPERFECT 15.6"
+
+I opted for dual UPERFECT 15.6-inch touchscreens. These panels are a staple in the custom-build community because they are incredibly thin, responsive, and can be powered via USB-C, keeping the internal wiring clean and simple.
+#### Mounting Monitors
+
+One of the biggest hurdles was mounting. These screens are non-VESA, meaning standard monitor arms were out of the question. I needed a solution that allowed the screens to sit wide and low—mimicking the ergonomics of a full-size console.
+
+I repurposed Crane DJ stands. By utilizing their clamping and hinge mechanisms, I achieved a wide, stable aspect that provides the rigidity needed for heavy touch use while remaining entirely toolless for quick adjustments or teardowns.
+#### The "Tiny PC" Advantage
+Because the MinisForum is so compact, it doesn't dictate the shape of the build. It sits tucked away, allowing the screens and the Command Wing to be the primary focus. This "wide but small" philosophy means the entire setup provides a full-console workflow while remaining physically manageable for a solo operator.
+__
+#### windows 11 (24h2) custom build
+
+Standard Windows is a nightmare for live entertainment. Background telemetry, "News and Interests" taskbar bloat, and forced updates are show-stoppers. For this build, I moved to Windows 11 24h2, but not the version you’d find at a retail store.
+
+* **Debloated Architecture:** The OS was stripped down to its core. By removing Edge, the Microsoft Store, and background AI assistants, the result is a lightning-fast boot time and a significantly lower CPU idle state.
+* **Custom Shell Integration:** To make this feel like a console, I bypassed the standard Windows Explorer shell. Instead of booting into a desktop with icons and a Start menu, the system boots directly into a custom shell environment that auto-launches the MA3 software.
+* **Update Suppression:** 24h2 brings better hardware scheduling, but it also brings more aggressive update cycles. By using a custom build, these are completely disabled, ensuring the console never decides to optimize itself five minutes before doors.
+
+Custom Script for Booting
+
+

@@ -1,236 +1,317 @@
-<!DOCTYPE html>
+--- title: "Radiohead" description: "2026 RIDER" pubDate: 2025-01-27 categories: - Technical tags: [] draft: false
+
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Radiohead Project - 2026 Tech Advance</title>
     <style>
-        @media print {
-            .no-print { display: none; }
-            body { background: white; -webkit-print-color-adjust: exact; }
-            .page-break { page-break-before: always; }
+      @media print {
+        .no-print {
+          display: none;
         }
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            background: #f4f4f4;
-            padding: 20px;
+          background: white;
+          -webkit-print-color-adjust: exact;
         }
-        .container {
-            background: white;
-            padding: 50px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        .page-break {
+          page-break-before: always;
         }
-        h1 { color: #222; border-bottom: 2px solid #000; padding-bottom: 10px; }
-        h2 { color: #444; margin-top: 30px; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
-        h3 { color: #555; margin-top: 20px; margin-bottom: 5px; }
-        .header-table { width: 100%; margin-bottom: 30px; border-collapse: collapse; }
-        .header-table td { padding: 5px; vertical-align: top; }
-        .meta-label { font-weight: bold; width: 150px; }
-        
-        .logo-container { text-align: center; margin-bottom: 30px; }
-        .logo-container img { max-width: 300px; height: auto; }
-        
-        table.data-table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.9em; }
-        table.data-table th, table.data-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        table.data-table th { background-color: #f2f2f2; font-weight: bold; }
+      }
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        background: #f4f4f4;
+        padding: 20px;
+      }
+      .container {
+        background: white;
+        padding: 50px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #222;
+        border-bottom: 2px solid #000;
+        padding-bottom: 10px;
+      }
+      h2 {
+        color: #444;
+        margin-top: 30px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+      }
+      h3 {
+        color: #555;
+        margin-top: 20px;
+        margin-bottom: 5px;
+      }
+      .header-table {
+        width: 100%;
+        margin-bottom: 30px;
+        border-collapse: collapse;
+      }
+      .header-table td {
+        padding: 5px;
+        vertical-align: top;
+      }
+      .meta-label {
+        font-weight: bold;
+        width: 150px;
 
-        .warning-box {
-            background-color: #fff3f3;
-            border-left: 6px solid #d9534f;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .warning-title { color: #d9534f; font-weight: bold; display: block; margin-bottom: 5px; }
+      .logo-container {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .logo-container img {
+        max-width: 300px;
+        height: auto;
 
-        .setlist-cols { column-count: 2; column-gap: 40px; }
-        .setlist-cols ol { margin-top: 0; }
-        
-        .stage-plot-container { text-align: center; margin: 30px 0; }
-        .stage-plot-container img { max-width: 100%; border: 1px solid #ddd; }
+      table.data-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        font-size: 0.9em;
+      }
+      table.data-table th,
+      table.data-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      table.data-table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+      }
 
-        .btn-print {
-            position: fixed; top: 20px; right: 20px;
-            padding: 10px 20px; background: #007bff; color: white;
-            border: none; border-radius: 5px; cursor: pointer;
-            font-size: 16px; font-weight: bold;
-        }
-        .btn-print:hover { background: #0056b3; }
+      .warning-box {
+        background-color: #fff3f3;
+        border-left: 6px solid #d9534f;
+        padding: 15px;
+        margin: 20px 0;
+      }
+      .warning-title {
+        color: #d9534f;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .setlist-cols {
+        column-count: 2;
+        column-gap: 40px;
+      }
+      .setlist-cols ol {
+        margin-top: 0;
+
+      .stage-plot-container {
+        text-align: center;
+        margin: 30px 0;
+      }
+      .stage-plot-container img {
+        max-width: 100%;
+        border: 1px solid #ddd;
+      }
+
+      .btn-print {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .btn-print:hover {
+        background: #0056b3;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <button class="no-print btn-print" onclick="window.print()">Download / Print to PDF</button>
 
     <div class="container">
-        
-        <div class="logo-container">
-            <img src="logo.png" alt="The Radiohead Project Logo">
-        </div>
+      <div class="logo-container">
+        <img src="logo.png" alt="The Radiohead Project Logo" />
+      </div>
 
-        <h1>2026 TOUR — LIGHTING & TECHNICAL ADVANCE</h1>
-        <p><strong>Version:</strong> 2026.2 (Final) &nbsp;|&nbsp; <strong>Date:</strong> January 2026</p>
+      <h1>2026 TOUR — LIGHTING & TECHNICAL ADVANCE</h1>
+      <p><strong>Version:</strong> 2026.2 (Final) &nbsp;|&nbsp; <strong>Date:</strong> January 2026</p>
 
-        <table class="header-table">
-            <tr>
-                <td class="meta-label">Lighting Designer:</td>
-                <td>Aaron Walker</td>
-            </tr>
-            <tr>
-                <td class="meta-label">Supplier:</td>
-                <td>Diffusion Productions</td>
-            </tr>
-            <tr>
-                <td class="meta-label">Timecode Source:</td>
-                <td>Fergus</td>
-            </tr>
-        </table>
+      <table class="header-table">
+        <tr>
+          <td class="meta-label">Lighting Designer:</td>
+          <td>Aaron Walker</td>
+        </tr>
+        <tr>
+          <td class="meta-label">Supplier:</td>
+          <td>Diffusion Productions</td>
+        </tr>
+        <tr>
+          <td class="meta-label">Timecode Source:</td>
+          <td>Fergus</td>
+        </tr>
+      </table>
 
-        <h2>1. GEAR OVERVIEW</h2>
-        <p>The Radiohead Project tours with a compact, high-impact floor package designed for rapid deployment and integration with venue house rigs.</p>
-        
-        <h3>Touring Fixtures</h3>
+      <h2>1. GEAR OVERVIEW</h2>
+      <p>
+        The Radiohead Project tours with a compact, high-impact floor package designed for rapid deployment and
+        integration with venue house rigs.
+      </p>
+
+      <h3>Touring Fixtures</h3>
+      <ul>
+        <li><strong>4 x</strong> Chauvet Rogue R1 Spots</li>
+        <li><strong>10 x</strong> Elation SixBar 1000 (referred to as "Batterns")</li>
+        <li><strong>1 x</strong> Hazer</li>
+        <li><strong>1 x</strong> Art-Net / sACN Node</li>
+      </ul>
+
+      <h3>Control Hardware (FOH)</h3>
+      <ul>
+        <li>
+          <strong>1 x</strong> Custom FOH Peli Case containing:
+          <ul>
+            <li>1 x Tiny NUC Style PC</li>
+            <li>2 x Touchscreen Monitors</li>
+            <li>2 x Laptop Stands</li>
+            <li>1 x Keyboard & Mouse</li>
+            <li>1 x Power Extension & Cabling</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h2>2. PATCH & NETWORK CONFIGURATION</h2>
+
+      <h3>Universe Breakdown</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Universe</th>
+            <th>Fixtures</th>
+            <th>Mode</th>
+            <th>Address Start</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Side Bars (4) & Back Spots (4)</td>
+            <td>Standard</td>
+            <td>1.001 (Spots)<br />1.100 (Bars)</td>
+            <td>Side Tank Traps & Upstage</td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Floor Batterns (6)</td>
+            <td>72-Channel</td>
+            <td>2.001</td>
+            <td>Risers / Floor Package</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>House Integration Strategy</h3>
+      <p>
+        <strong>Preferred Method:</strong> We request <strong>2 hard-line DMX inputs</strong> (or network lines) from
+        the House lighting system at FOH. We will re-address our fixtures inside the MA3 software to match the House
+        Universes provided. This prevents the need for a network run from FOH to Stage.
+      </p>
+
+      <div class="warning-box">
+        <span class="warning-title">CRITICAL: FOH NETWORK SETTINGS</span>
+        The NUC PC utilizes specific network interfaces. <strong>Do not alter these settings.</strong><br /><br />
         <ul>
-            <li><strong>4 x</strong> Chauvet Rogue R1 Spots</li>
-            <li><strong>10 x</strong> Elation SixBar 1000 (referred to as "Batterns")</li>
-            <li><strong>1 x</strong> Hazer</li>
-            <li><strong>1 x</strong> Art-Net / sACN Node</li>
+          <li><strong>USB-C Ports (x2):</strong> Strictly for Touchscreen Monitors.</li>
+          <li><strong>USB Hub:</strong> Wireless mouse + <strong>External USB-NIC</strong>.</li>
+          <li><strong>External USB-NIC IP:</strong> <code>2.0.0.1</code> (Art-Net)</li>
+          <li><strong>Internal NIC IP:</strong> <code>10.0.0.1</code> (sACN)</li>
         </ul>
+      </div>
 
-        <h3>Control Hardware (FOH)</h3>
-        <ul>
-            <li><strong>1 x</strong> Custom FOH Peli Case containing:
-                <ul>
-                    <li>1 x Tiny NUC Style PC</li>
-                    <li>2 x Touchscreen Monitors</li>
-                    <li>2 x Laptop Stands</li>
-                    <li>1 x Keyboard & Mouse</li>
-                    <li>1 x Power Extension & Cabling</li>
-                </ul>
-            </li>
-        </ul>
+      <div class="page-break"></div>
+      <h2>3. STAGE LAYOUT & DEPLOYMENT</h2>
 
-        <h2>2. PATCH & NETWORK CONFIGURATION</h2>
-        
-        <h3>Universe Breakdown</h3>
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Universe</th>
-                    <th>Fixtures</th>
-                    <th>Mode</th>
-                    <th>Address Start</th>
-                    <th>Location</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>1</strong></td>
-                    <td>Side Bars (4) & Back Spots (4)</td>
-                    <td>Standard</td>
-                    <td>1.001 (Spots)<br>1.100 (Bars)</td>
-                    <td>Side Tank Traps & Upstage</td>
-                </tr>
-                <tr>
-                    <td><strong>2</strong></td>
-                    <td>Floor Batterns (6)</td>
-                    <td>72-Channel</td>
-                    <td>2.001</td>
-                    <td>Risers / Floor Package</td>
-                </tr>
-            </tbody>
-        </table>
+      <h3>Riser Configuration</h3>
+      <ul>
+        <li><strong>Stage Left Riser:</strong> Drums</li>
+        <li><strong>Stage Right Riser:</strong> Keys</li>
+        <li><strong>Center Stage:</strong> Two Singers (Front)</li>
+        <li><strong>Upstage Center:</strong> Bass</li>
+      </ul>
+      <p><em>Note: Risers are flanked at a slight 20-30&deg; angle.</em></p>
 
-        <h3>House Integration Strategy</h3>
-        <p><strong>Preferred Method:</strong> We request <strong>2 hard-line DMX inputs</strong> (or network lines) from the House lighting system at FOH. We will re-address our fixtures inside the MA3 software to match the House Universes provided. This prevents the need for a network run from FOH to Stage.</p>
+      <h3>Data & Power Flow</h3>
+      <ul>
+        <li><strong>Universe 1:</strong> Input at SL (Drummer) &rarr; Side Bars &rarr; Upstage R1 Spots.</li>
+        <li><strong>Universe 2:</strong> Input at Front Riser &rarr; Links remaining 5 floor batterns.</li>
+        <li><strong>Power:</strong> 2 x 16A feeds required (1x SL, 1x SR).</li>
+      </ul>
 
-        <div class="warning-box">
-            <span class="warning-title">CRITICAL: FOH NETWORK SETTINGS</span>
-            The NUC PC utilizes specific network interfaces. <strong>Do not alter these settings.</strong><br><br>
-            <ul>
-                <li><strong>USB-C Ports (x2):</strong> Strictly for Touchscreen Monitors.</li>
-                <li><strong>USB Hub:</strong> Wireless mouse + <strong>External USB-NIC</strong>.</li>
-                <li><strong>External USB-NIC IP:</strong> <code>2.0.0.1</code> (Art-Net)</li>
-                <li><strong>Internal NIC IP:</strong> <code>10.0.0.1</code> (sACN)</li>
-            </ul>
-        </div>
+      <h3>Stage Plot</h3>
+      <div class="stage-plot-container">
+        <img src="stageplot.jpeg" alt="Stage Plot Diagram" />
+      </div>
 
-        <div class="page-break"></div>
-        <h2>3. STAGE LAYOUT & DEPLOYMENT</h2>
-        
-        <h3>Riser Configuration</h3>
-        <ul>
-            <li><strong>Stage Left Riser:</strong> Drums</li>
-            <li><strong>Stage Right Riser:</strong> Keys</li>
-            <li><strong>Center Stage:</strong> Two Singers (Front)</li>
-            <li><strong>Upstage Center:</strong> Bass</li>
-        </ul>
-        <p><em>Note: Risers are flanked at a slight 20-30&deg; angle.</em></p>
+      <h2>4. FOH LOGISTICS & PACKING PROTOCOL</h2>
+      <div class="warning-box">
+        <span class="warning-title">⚠️ CRITICAL PACKING INSTRUCTIONS</span>
+        To prevent damage, the FOH Peli Case <strong>MUST</strong> be packed in this order:
+        <ol>
+          <li><strong>BOTTOM:</strong> Heavy items (Cabling, Laptop Stands).</li>
+          <li>
+            <strong>MIDDLE:</strong> Computer + Touchscreens (in sleeves).
+            <strong>NEVER put screens at the bottom.</strong>
+          </li>
+          <li><strong>TOP:</strong> Power extension and lightweight accessories.</li>
+        </ol>
+      </div>
 
-        <h3>Data & Power Flow</h3>
-        <ul>
-            <li><strong>Universe 1:</strong> Input at SL (Drummer) &rarr; Side Bars &rarr; Upstage R1 Spots.</li>
-            <li><strong>Universe 2:</strong> Input at Front Riser &rarr; Links remaining 5 floor batterns.</li>
-            <li><strong>Power:</strong> 2 x 16A feeds required (1x SL, 1x SR).</li>
-        </ul>
+      <h2>5. SHOW OPERATION</h2>
+      <ul>
+        <li><strong>MA3 Views:</strong> View 1 (Palettes/Presets), View 2 (Timecode/Walk-in).</li>
+        <li><strong>House Lights:</strong> Must be patched into the "Walk-in Fader".</li>
+        <li><strong>Timecode:</strong> Generated from Fergus; runs automatically in MA3 pool.</li>
+      </ul>
 
-        <h3>Stage Plot</h3>
-        <div class="stage-plot-container">
-            <img src="stageplot.jpeg" alt="Stage Plot Diagram">
-        </div>
-
-        <h2>4. FOH LOGISTICS & PACKING PROTOCOL</h2>
-        <div class="warning-box">
-            <span class="warning-title">⚠️ CRITICAL PACKING INSTRUCTIONS</span>
-            To prevent damage, the FOH Peli Case <strong>MUST</strong> be packed in this order:
-            <ol>
-                <li><strong>BOTTOM:</strong> Heavy items (Cabling, Laptop Stands).</li>
-                <li><strong>MIDDLE:</strong> Computer + Touchscreens (in sleeves). <strong>NEVER put screens at the bottom.</strong></li>
-                <li><strong>TOP:</strong> Power extension and lightweight accessories.</li>
-            </ol>
-        </div>
-
-        <h2>5. SHOW OPERATION</h2>
-        <ul>
-            <li><strong>MA3 Views:</strong> View 1 (Palettes/Presets), View 2 (Timecode/Walk-in).</li>
-            <li><strong>House Lights:</strong> Must be patched into the "Walk-in Fader".</li>
-            <li><strong>Timecode:</strong> Generated from Fergus; runs automatically in MA3 pool.</li>
-        </ul>
-
-        <div class="page-break"></div>
-        <h2>6. SETLIST (2026)</h2>
-        <div class="setlist-cols">
-            <ol>
-                <li>The Bends</li>
-                <li>Airbag</li>
-                <li>Street Spirit (Fade Out)</li>
-                <li>Lucky</li>
-                <li>Kid A (Medley)</li>
-                <li>Paranoid Android</li>
-                <li>Let Down</li>
-                <li>All I Need</li>
-                <li>Talk Show Host</li>
-                <li>Iron Lung</li>
-                <li>Climbing Up the Walls</li>
-                <li>Planet Telex</li>
-                <li>Just</li>
-                <li>Weird Fishes/Arpeggi</li>
-                <li>High and Dry</li>
-                <li>15 Step</li>
-                <li>Nude</li>
-                <li>Pyramid Song</li>
-                <li>Jigsaw Falling into Place</li>
-                <li>Exit Music (For a Film)</li>
-                <li>Karma Police</li>
-                <li>Fake Plastic Trees</li>
-                <li>Creep</li>
-                <li>No Surprises</li>
-            </ol>
-        </div>
+      <div class="page-break"></div>
+      <h2>6. SETLIST (2026)</h2>
+      <div class="setlist-cols">
+        <ol>
+          <li>The Bends</li>
+          <li>Airbag</li>
+          <li>Street Spirit (Fade Out)</li>
+          <li>Lucky</li>
+          <li>Kid A (Medley)</li>
+          <li>Paranoid Android</li>
+          <li>Let Down</li>
+          <li>All I Need</li>
+          <li>Talk Show Host</li>
+          <li>Iron Lung</li>
+          <li>Climbing Up the Walls</li>
+          <li>Planet Telex</li>
+          <li>Just</li>
+          <li>Weird Fishes/Arpeggi</li>
+          <li>High and Dry</li>
+          <li>15 Step</li>
+          <li>Nude</li>
+          <li>Pyramid Song</li>
+          <li>Jigsaw Falling into Place</li>
+          <li>Exit Music (For a Film)</li>
+          <li>Karma Police</li>
+          <li>Fake Plastic Trees</li>
+          <li>Creep</li>
+          <li>No Surprises</li>
+        </ol>
+      </div>
     </div>
-
-</body>
+  </body>
 </html>
